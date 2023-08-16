@@ -22,6 +22,8 @@ Catch the Json from the request.
 
 Print the Json on the console. 
 
+![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://github.com/VarleyS/SevenDaysOfCode/blob/master/SevenDaysOfCode/img/Captura%20de%20tela%202023-08-16%20165332.png?raw=true)
+
 ## Day 2:
 
 ## Day 3:
