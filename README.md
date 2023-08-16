@@ -26,6 +26,10 @@ Print the Json on the console.
 
 ## Day 2:
 
+Parse the Json response and extract each Pokémon info.
+
+Show the organized information on the console.
+
 ## Day 3:
 
 ## Day 4:
