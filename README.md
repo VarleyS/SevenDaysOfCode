@@ -20,7 +20,7 @@ Create C# code to execte the HTTP GET request.
 
 Catch the Json from the request.
 
-Print the Json on the console.
+Print the Json on the console. 
 
 ## Day 2:
 
