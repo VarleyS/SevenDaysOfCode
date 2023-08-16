@@ -1,15 +1,13 @@
-# 7Days Of Code
-![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](file:///D:/Usu%C3%A1rios/Cliente/Pictures/logo.svg)
-
+# 7Days Of Code - C#
 
 ## Project Summary:
 
 Consume the PokéAPI (Pokémon API) utilizing just C# language, list the Pokémons and allows the user to chooes a Pokémon for adoption.
 
 ## Stack:
-![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white)
 
 C# Language 
+
 .Net Framework
 
 PokéAPI
