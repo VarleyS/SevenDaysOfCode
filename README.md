@@ -30,6 +30,8 @@ Parse the Json response and extract each Pokémon info.
 
 Show the organized information on the console.
 
+![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://github.com/VarleyS/SevenDaysOfCode/blob/master/SevenDaysOfCode/img/day2.png?raw=true)
+
 ## Day 3:
 
 ## Day 4:
