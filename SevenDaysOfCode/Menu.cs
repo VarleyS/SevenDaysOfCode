@@ -44,13 +44,11 @@ namespace SevenDaysOfCode
                     Console.WriteLine("Opção inválida!");
                     break;
             }
-            Console.Clear();
             Console.ReadKey();
         }
 
         public void MenuAdocaoMascote()
         {
-            Console.Clear();
             Console.WriteLine("***********Lista de mascotes para adoção***********\n");
             Console.WriteLine("Qual dos mascotes abaixo deseja adotar?\n");
             Console.WriteLine("Bulbasaur");

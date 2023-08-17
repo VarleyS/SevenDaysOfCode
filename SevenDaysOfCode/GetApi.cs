@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 
 namespace SevenDaysOfCode
 {
@@ -12,7 +13,6 @@ namespace SevenDaysOfCode
     {
         public static void InvoqueGet(string nome)
         {
-            Console.Clear();
             var client = new RestClient($"https://pokeapi.co/api/v2/pokemon/{nome}");
             var request = new RestRequest("", Method.Get);
             var response = client.Execute(request);
