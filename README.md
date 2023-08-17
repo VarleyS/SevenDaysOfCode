@@ -1,4 +1,9 @@
 # 7Days Of Code - C#
+<div align="center">
+  
+![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://7daysofcode.io/assets/img/background-7days.1691614118.svg)
+
+</div>
 
 ## Project Summary:
 
