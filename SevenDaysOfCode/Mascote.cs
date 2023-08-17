@@ -23,6 +23,7 @@ namespace SevenDaysOfCode
         public double Peso { get; set; }
 
         [JsonPropertyName("abilities")]
-        public List<Ability> abilidades { get; set; }
+        public List<Ability> Abilidades { get; set; }
+
     }
 }
