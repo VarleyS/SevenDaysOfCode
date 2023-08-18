@@ -45,6 +45,7 @@ namespace SevenDaysOfCode
                     break;
             }
             Console.ReadKey();
+
         }
 
         public void MenuAdocaoMascote()
