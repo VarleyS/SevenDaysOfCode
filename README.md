@@ -43,6 +43,12 @@ The Json was parsed with the System.Text.Json and the class Mascote and class Ab
 
 ## Day 3:
 
+* **Create an interactive menu and allow user to view your current mascots, choose an mascot to adopt and exit the app.**
+
+Created Menu class providing user interaction and options to adopt a mascot, view its information and exit the menu.
+
+![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://github.com/VarleyS/SevenDaysOfCode/blob/master/SevenDaysOfCode/img/Dia%203.png?raw=true)
+
 ## Day 4:
 
 ## Day 5:
