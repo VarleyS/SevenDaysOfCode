@@ -1,18 +1,17 @@
-﻿using System;
+﻿using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 
 namespace SevenDaysOfCode
 {
-    public class Mascote
+    public class Pokemon
     {
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
-
         [JsonPropertyName("name")]
         public string Nome { get; set; }
 
@@ -24,6 +23,5 @@ namespace SevenDaysOfCode
 
         [JsonPropertyName("abilities")]
         public List<Ability> Abilidades { get; set; }
-
     }
 }
