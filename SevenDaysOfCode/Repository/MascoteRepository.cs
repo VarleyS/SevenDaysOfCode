@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 
-namespace SevenDaysOfCode
+namespace SevenDaysOfCode.Repository
 {
-    public class GetApi
+    public class MascoteRepository
     {
         public static void InvoqueGet(string nome)
         {
@@ -22,7 +21,7 @@ namespace SevenDaysOfCode
             {
                 var tes = JsonSerializer.Deserialize<Mascote>(response.Content);
 
-                Console.WriteLine($"Nome: {tes.Nome}");
+                Console.WriteLine($"Nome: {tes.Nome.ToUpper()}");
                 Console.WriteLine($"Altura: {tes.Altura}");
                 Console.WriteLine($"Peso: {tes.Peso}\n");
                 Console.WriteLine("Habilidades:");

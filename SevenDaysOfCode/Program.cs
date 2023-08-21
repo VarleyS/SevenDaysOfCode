@@ -1,4 +1,5 @@
 ﻿using RestSharp;
+using SevenDaysOfCode.Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,8 @@ namespace SevenDaysOfCode
     {
         static void Main(string[] args)
         {
-            Menu menu = new Menu();
-            menu.ExibeMenu();
+            TamagotchiController controller = new TamagotchiController();
+            controller.Jogar();
         }
     }
 }
