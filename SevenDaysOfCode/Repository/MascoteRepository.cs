@@ -1,41 +1,124 @@
 ﻿using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 
 namespace SevenDaysOfCode.Repository
 {
     public class MascoteRepository
     {
-        public static void GetPokemon(string nome)
+        private string meusMascotesPath;
+        private const string cachePath = "cache.json";
+
+        public MascoteRepository(string fileName)
         {
-            var client = new RestClient($"https://pokeapi.co/api/v2/pokemon/{nome}");
-            var request = new RestRequest("", Method.Get);
-            var response = client.Execute(request);
-            List<Ability> abilidades = new List<Ability>();
+            meusMascotesPath = fileName;
+        }
 
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+        public void SalvarMascote(Mascote mascote)
+        {
+            List<Mascote> meusMascotes = ViewAll();
+
+            meusMascotes.Remove(mascote);
+            meusMascotes.Add(mascote);
+
+            SalvaLista(meusMascotes);
+        }
+
+        public void AtualizaMascote(Mascote mascote)
+        {
+            List<Mascote> meusMascotes = ViewAll();
+
+            meusMascotes.Remove(mascote);
+            meusMascotes.Add(mascote);
+
+            SalvaLista(meusMascotes);
+        }
+
+        public void RemoveMascote(Mascote mascote)
+        {
+            List<Mascote> meusMascotes = ViewAll();
+
+            meusMascotes.Remove(mascote);
+
+            SalvaLista(meusMascotes);
+        }
+
+        public List<Mascote> ViewAll()
+        {
+            string mascotes = File.ReadAllText(meusMascotesPath);
+            List<Mascote> lista = JsonSerializer.Deserialize<List<Mascote>>(mascotes);
+            lista.Sort();
+
+            return lista;
+        }
+
+        private void SalvaLista(List<Mascote> atualizaLista)
+        {
+            string meusMascotesUpdate = JsonSerializer.Serialize(atualizaLista.Distinct(), new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(meusMascotesPath, meusMascotesUpdate);
+        }
+
+        public Pokemon GetPokemon(string nome)
+        {
+            if (nome == string.Empty)
+                throw new ArgumentException();
+
+            string cache = File.ReadAllText(cachePath);
+            List<Pokemon> cachePokemonList = JsonSerializer.Deserialize<List<Pokemon>>(cache).ToList();
+
+            foreach (Pokemon po in cachePokemonList)
             {
-                var tes = JsonSerializer.Deserialize<Mascote>(response.Content);
+                if (po.Equals(nome))
+                    return po;
+            }
 
-                Console.WriteLine($"Nome: {tes.Nome.ToUpper()}");
-                Console.WriteLine($"Altura: {tes.Altura}");
-                Console.WriteLine($"Peso: {tes.Peso}\n");
-                Console.WriteLine("Habilidades:");
+            try
+            {
+                var client = new RestClient($"https://pokeapi.co/api/v2/pokemon/{nome}");
+                var request = new RestRequest("", Method.Get);
+                var response = client.Execute(request);
+                List<Ability> abilidades = new List<Ability>();
 
-                foreach (var item in tes.Abilidades)
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    Console.WriteLine($"Nome da habilidade: {item.ability.name.ToUpper()}");
+                    //Salva Pokemon
+                    Pokemon newPokemon = JsonSerializer.Deserialize<Pokemon>(response.Content);
+
+                    cachePokemonList.Add(newPokemon);
+
+                    string newCache = JsonSerializer.Serialize(cachePokemonList.Distinct(), new JsonSerializerOptions { WriteIndented = true });
+
+                    File.WriteAllText(cachePath, newCache);
+
+                    return newPokemon;
+
+                    //Console.WriteLine($"Nome: {tes.Nome.ToUpper()}");
+                    //Console.WriteLine($"Altura: {tes.Altura}");
+                    //Console.WriteLine($"Peso: {tes.Peso}\n");
+                    //Console.WriteLine("Habilidades:");
+
+                    //foreach (var item in tes.Abilidades)
+                    //{
+                    //    Console.WriteLine($"Nome da habilidade: {item.ability.name.ToUpper()}");
+                    //}
                 }
+                else
+                {
+                    Console.WriteLine(response.ErrorMessage);
+                }
+                Console.ReadKey();
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine(response.ErrorMessage);
+                throw new Exception(ex.Message);
             }
-            Console.ReadKey();
+            return newPokemon;
         }
     }
 }

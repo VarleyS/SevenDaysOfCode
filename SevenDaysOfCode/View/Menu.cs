@@ -14,7 +14,7 @@ namespace SevenDaysOfCode
         string nomeJogador;
         string mascote;
         string opcao;
-
+        MascoteRepository repository;
         public void BoasVindas()
         {
             Console.WriteLine(@"
@@ -41,46 +41,21 @@ namespace SevenDaysOfCode
 
         public void MenuAdocaoMascote()
         {
-            int mAdocao = 1;
+            Console.WriteLine("*************************************************Menu de Adoção*************************************************");
 
-            while (mAdocao == 1)
-            {
-                Console.WriteLine("*************************************************Menu de Adoção*************************************************");
-
-                Console.WriteLine($"{nomeJogador} que você deseja: ");
-                Console.WriteLine("1 - Lista de mascotes");
-                Console.WriteLine($"2 - Saber mais sobre o {mascote}");
-                Console.WriteLine($"3 - Adotar o {mascote}");
-                Console.WriteLine("4 - Volta ao Menu Principal");
-
-                opcao = Console.ReadLine();
-
-                switch (opcao)
-                {
-                    case "1":
-                        ListaMascotes();
-                        break;
-                    case "2":
-                        MascoteRepository.GetPokemon(mascote.ToLower());
-                        break;
-                    case "3":
-                        Console.WriteLine("Adotar mascote");
-                        break;
-                    case "4":
-                        mAdocao = 0;
-                        break;
-                    default:
-                        Console.WriteLine("Opção inválida.");
-                        break;
-                }
-            }
+            Console.WriteLine($"{nomeJogador} que você deseja: ");
+            Console.WriteLine("1 - Lista de mascotes");
+            Console.WriteLine($"2 - Saber mais sobre o {mascote}");
+            Console.WriteLine($"3 - Adotar o {mascote}");
+            Console.WriteLine("4 - Volta ao Menu Principal");
         }
+
         public void VerMascotes()
         {
             Console.WriteLine("acessou menu Ver Mascotes");
         }
 
-        public void ListaMascotes() 
+        public void ListaMascotes()
         {
             Console.WriteLine("*********************************************Lista de mascotes para adoção*********************************************\n");
             Console.WriteLine("Bulbasaur");

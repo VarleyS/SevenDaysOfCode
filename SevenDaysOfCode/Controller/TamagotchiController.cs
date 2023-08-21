@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SevenDaysOfCode.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,12 @@ namespace SevenDaysOfCode.Controller
     public class TamagotchiController
     {
         Menu menu = new Menu();
+        MascoteRepository repository;
+        string opcaoUsuario;
+        int jogar = 1;
+
         public void Jogar()
         {
-            string opcaoUsuario;
-            int jogar = 1;
             menu.BoasVindas();
 
             while(jogar == 1)
@@ -22,7 +25,7 @@ namespace SevenDaysOfCode.Controller
 
                 switch (opcaoUsuario)
                 {
-                    case "1": menu.MenuAdocaoMascote();
+                    case "1": AdotarMascote();
                         break;
                     case "2": menu.VerMascotes();
                         break;
@@ -35,5 +38,32 @@ namespace SevenDaysOfCode.Controller
             }
         }
 
+        private void AdotarMascote()
+        {
+            while (jogar == 1)
+            {
+                menu.MenuAdocaoMascote();
+                opcaoUsuario = Console.ReadLine();
+
+                switch (opcaoUsuario)
+                {
+                    case "1":
+                        menu.ListaMascotes();
+                        break;
+                    case "2":
+                        repository.GetPokemon(opcaoUsuario.ToLower());
+                        break;
+                    case "3":
+                        Console.WriteLine("Adotar mascote");
+                        break;
+                    case "4":
+                        jogar = 0;
+                        break;
+                    default:
+                        Console.WriteLine("Opção inválida.");
+                        break;
+                }
+            }
+        }
     }
 }
