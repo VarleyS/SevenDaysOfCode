@@ -61,7 +61,7 @@ namespace SevenDaysOfCode
                         ListaMascotes();
                         break;
                     case "2":
-                        MascoteRepository.InvoqueGet(mascote.ToLower());
+                        MascoteRepository.GetPokemon(mascote.ToLower());
                         break;
                     case "3":
                         Console.WriteLine("Adotar mascote");
