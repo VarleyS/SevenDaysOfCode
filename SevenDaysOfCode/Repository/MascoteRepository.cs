@@ -10,7 +10,7 @@ namespace SevenDaysOfCode.Repository
 {
     public class MascoteRepository
     {
-        public static void InvoqueGet(string nome)
+        public static void GetPokemon(string nome)
         {
             var client = new RestClient($"https://pokeapi.co/api/v2/pokemon/{nome}");
             var request = new RestRequest("", Method.Get);
