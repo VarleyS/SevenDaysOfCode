@@ -51,6 +51,13 @@ Created Menu class providing user interaction and options to adopt a mascot, vie
 
 ## Day 4:
 
+* ** Organize the project source files in the MVC (Model view controller) standart.
+
+The application was divided into classes according to Mvc:
+Model = Ability, Mascote, Pokemon
+View = Menu
+Controller = TamagotchiController
+
 ## Day 5:
 
 ## Day 6:
