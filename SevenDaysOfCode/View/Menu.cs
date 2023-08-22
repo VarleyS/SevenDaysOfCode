@@ -52,6 +52,37 @@ namespace SevenDaysOfCode
             Console.WriteLine("Qual mascote gostaria de adotar?");
         }
 
+        internal static bool OpcaoSimOuNao(string message)
+        {
+            Console.WriteLine($"\n{message}");
+
+            var opts = new Dictionary<string, string>()
+            {
+                ["Y"] = "Sim",
+                ["N"] = "Não"
+            };
+
+            foreach (var item in opts)
+            {
+                Console.WriteLine(item.Key + "=" + item.Value);
+            }
+
+            while (true)
+            {
+                string opt = Console.ReadLine().ToUpper();
+
+                switch (opt)
+                {
+                    case "Y": return true;
+                        break;
+                    case "N": return false;
+                        break;
+                    default: Console.WriteLine("Opção inválida!!!");
+                        break;
+                }
+            }
+        } 
+
         internal static string ProgressBar(int value, int total = 10)
         {
             if (value > total)
