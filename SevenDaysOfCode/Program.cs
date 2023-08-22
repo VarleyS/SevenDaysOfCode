@@ -1,5 +1,6 @@
 ﻿using RestSharp;
 using SevenDaysOfCode.Controller;
+using SevenDaysOfCode.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,8 @@ namespace SevenDaysOfCode
     {
         static void Main(string[] args)
         {
-            TamagotchiController controller = new TamagotchiController();
+            var repository = new MascoteRepository("MyMascots.json");
+            TamagotchiController controller = new TamagotchiController(repository);
             controller.Jogar();
         }
     }

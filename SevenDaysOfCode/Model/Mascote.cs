@@ -91,6 +91,16 @@ namespace SevenDaysOfCode
 
         public string RetornaSaude()
         {
+            if (this.health.Value > 7)
+                return "Saudável";
+            if (this.health.Value > 5)
+                return "Pouco doente";
+
+            return "Doente";
+        }
+
+        public string RetornaFome()
+        {
             if(this.hungry.Value > 7)
             {
                 return "Está com muita fome!";
@@ -131,7 +141,7 @@ namespace SevenDaysOfCode
             return "Está triste!!!";
         }
 
-        public string RetornaCanssaco()
+        public string RetornaCanssado()
         {
             if(this.tiredness.Value > 8)
             {

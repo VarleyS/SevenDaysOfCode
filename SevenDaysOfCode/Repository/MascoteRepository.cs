@@ -12,6 +12,7 @@ namespace SevenDaysOfCode.Repository
 {
     public class MascoteRepository
     {
+        Pokemon newPokemon = new Pokemon();
         private string meusMascotesPath;
         private const string cachePath = "cache.json";
 
@@ -70,6 +71,7 @@ namespace SevenDaysOfCode.Repository
                 throw new ArgumentException();
 
             string cache = File.ReadAllText(cachePath);
+
             List<Pokemon> cachePokemonList = JsonSerializer.Deserialize<List<Pokemon>>(cache).ToList();
 
             foreach (Pokemon po in cachePokemonList)
@@ -88,7 +90,7 @@ namespace SevenDaysOfCode.Repository
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     //Salva Pokemon
-                    Pokemon newPokemon = JsonSerializer.Deserialize<Pokemon>(response.Content);
+                    newPokemon = JsonSerializer.Deserialize<Pokemon>(response.Content);
 
                     cachePokemonList.Add(newPokemon);
 
@@ -98,15 +100,6 @@ namespace SevenDaysOfCode.Repository
 
                     return newPokemon;
 
-                    //Console.WriteLine($"Nome: {tes.Nome.ToUpper()}");
-                    //Console.WriteLine($"Altura: {tes.Altura}");
-                    //Console.WriteLine($"Peso: {tes.Peso}\n");
-                    //Console.WriteLine("Habilidades:");
-
-                    //foreach (var item in tes.Abilidades)
-                    //{
-                    //    Console.WriteLine($"Nome da habilidade: {item.ability.name.ToUpper()}");
-                    //}
                 }
                 else
                 {
