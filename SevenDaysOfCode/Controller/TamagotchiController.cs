@@ -1,4 +1,5 @@
-﻿using SevenDaysOfCode.Repository;
+﻿using AutoMapper;
+using SevenDaysOfCode.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,15 +67,18 @@ namespace SevenDaysOfCode.Controller
                     Console.WriteLine($"Nome da habilidade: {item.ability.name.ToUpper()}");
                 }
 
-                Console.WriteLine($"\nTem certeza que quer adotar {pokemon.Nome} ?\n");
-
-                var simOuNao = Console.ReadLine();
-
                 Console.WriteLine();
-                if (simOuNao == "sim")
+                if (Menu.OpcaoSimOuNao($"Você tem certeza de que quer adotar {pokemon.Nome} ?"))
                 {
                     _repository.SalvarMascote(new Mascote(pokemon));
                     Console.WriteLine("Mascote adotado com sucesso, o ovo esta chocando!");
+                    Console.WriteLine(@"           .....::::           
+        :.....::::::!         
+        :.....::::::::        
+       ...:..:::::::::        
+        ...:::::::::::        
+          .:::::::::          
+             ...... ");
                 }
             }
             catch (Exception ex)
@@ -95,7 +99,7 @@ namespace SevenDaysOfCode.Controller
 
                 for (int i = 0; i < mascotes.Count; i++)
                 {
-                    opcao.Add((i + 1).ToString(), $"Nome: {mascotes[i].Nome}\t Saúde: {Menu.ProgressBar(mascotes[i].health.Value)}");
+                    opcao.Add((i + 1).ToString(), $"Nome: {mascotes[i].Nome.ToUpper()}\t Saúde: {Menu.ProgressBar(mascotes[i].health.Value)}");
                 }
                 opcao.Add("q", "Exit");
                 string opt = Menu.MenuView(opcao);
@@ -178,22 +182,28 @@ namespace SevenDaysOfCode.Controller
                         mascote.Comer();
                         Console.WriteLine($"{mascote.Nome.ToUpper()} comeu alguma comida.\n");
                         break;
-                    case "2": mascote.Jogar();
+                    case "2":
+                        mascote.Jogar();
                         Console.WriteLine($"{mascote.Nome.ToUpper()} está se divertindo!\n");
                         break;
-                    case "3": mascote.Dormir();
-                        Console.WriteLine($"{mascote.Nome.ToUpper()     } está dormindo. (=^.^=) zzzzzzz");
+                    case "3":
+                        mascote.Dormir();
+                        Console.WriteLine($"{mascote.Nome.ToUpper()} está dormindo. (=^.^=) zzzzzzz");
                         break;
-                    case "4": mascote.Medicamento();
+                    case "4":
+                        mascote.Medicamento();
                         Console.WriteLine($"{mascote.Nome.ToUpper()} tomou algum remédio.");
                         break;
-                    case "5": if ($"Você tem certeza de doar o {mascote.Nome.ToUpper()}" == "sim")
-                                Console.WriteLine("Tchau Tchau!!! (=^.^=)");
+                    case "5":
+                        if (Menu.OpcaoSimOuNao($"Você tem certeza de que quer doar o {mascote.Nome}"))
+                            Console.WriteLine("Tchau Tchau!!! (=^.^=)");
                         _repository.RemoveMascote(mascote);
-                        break;
-                    case "q": _repository.AtualizaMascote(mascote);
                         return;
-                    default: Console.WriteLine("Opção inválida!");
+                    case "q":
+                        _repository.AtualizaMascote(mascote);
+                        return;
+                    default:
+                        Console.WriteLine("Opção inválida!");
                         break;
                 }
             }
