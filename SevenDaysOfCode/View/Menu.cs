@@ -29,6 +29,7 @@ namespace SevenDaysOfCode
             Console.WriteLine("Qual o seu nome?");
             nomeJogador = Console.ReadLine().ToUpper();
         }
+
         public void MenuPrincipal()
         {
             Console.WriteLine("*************************************************Menu Principal*************************************************");
@@ -37,22 +38,6 @@ namespace SevenDaysOfCode
             Console.WriteLine("\n1 - Adotar um mascote virtual");
             Console.WriteLine("\n2 - Ver seus mascotes");
             Console.WriteLine("\n3 - Sair\n");
-        }
-
-        public void MenuAdocaoMascote()
-        {
-            Console.WriteLine("*************************************************Menu de Adoção*************************************************");
-
-            Console.WriteLine($"{nomeJogador} que você deseja: ");
-            Console.WriteLine("1 - Lista de mascotes");
-            Console.WriteLine($"2 - Saber mais sobre o {mascote}");
-            Console.WriteLine($"3 - Adotar o {mascote}");
-            Console.WriteLine("4 - Volta ao Menu Principal");
-        }
-
-        public void VerMascotes()
-        {
-            Console.WriteLine("acessou menu Ver Mascotes");
         }
 
         public void ListaMascotes()
@@ -65,7 +50,38 @@ namespace SevenDaysOfCode
             Console.WriteLine("Pidgey\n");
 
             Console.WriteLine("Qual mascote gostaria de adotar?");
-            mascote = Console.ReadLine();
         }
+
+        internal static string ProgressBar(int value, int total = 10)
+        {
+            if (value > total)
+                value = total; 
+            
+            var ss = new StringBuilder(32);
+            ss.Append('|');
+            Enumerable.Range(0, value).ToList().ForEach(i => ss.Append("="));
+            Enumerable.Range(0, total - value).ToList().ForEach(i => ss.Append("-"));
+            ss.Append('|');
+
+            return ss.ToString();
+        }
+
+        internal static string MenuView(Dictionary<string, string> option)
+        {
+            Console.WriteLine("\nEscolha uma opção:");
+
+            foreach (var opt in option)
+            {
+                Console.WriteLine(opt.Key + " - " + opt.Value);
+            }
+
+            while (true)
+            {
+                string opt = Console.ReadLine();
+                if(option.Keys.Contains(opt))
+                    return opt;
+                Console.WriteLine("Opção inválida, tente novamente");
+            }
+        } 
     }
 }
