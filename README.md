@@ -51,14 +51,21 @@ Created Menu class providing user interaction and options to adopt a mascot, vie
 
 ## Day 4:
 
-* ** Organize the project source files in the MVC (Model view controller) standart.
+* **Organize the project source files in the MVC (Model view controller) standart.**
 
 The application was divided into classes according to Mvc:
 Model = Ability, Mascote, Pokemon
 View = Menu
 Controller = TamagotchiController
 
+![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://github.com/VarleyS/SevenDaysOfCode/blob/master/SevenDaysOfCode/img/day4.png)
+
 ## Day 5:
+
+* **Add common mascote atributos fome, sono, felicidade, canssado, saúde.**
+* **Add mascote actions eat, sleep and play**
+
+![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://github.com/VarleyS/SevenDaysOfCode/blob/master/SevenDaysOfCode/img/day5.png)
 
 ## Day 6:
 
