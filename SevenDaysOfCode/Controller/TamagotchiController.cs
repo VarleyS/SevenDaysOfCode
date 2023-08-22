@@ -83,7 +83,7 @@ namespace SevenDaysOfCode.Controller
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
 
