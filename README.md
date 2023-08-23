@@ -69,4 +69,12 @@ Controller = TamagotchiController
 
 ## Day 6:
 
+* **Map class Pokemon to class Mascot.**
+Implementation carried out in the mascot class, so that it inherits characteristics from the Pokemon class.
+
+
 ## Day 7:
+
+* **Build and generate the executable of the application**
+Application published for interactions, using commands, according to [documentation.](https://learn.microsoft.com/pt-br/dotnet/core/tutorials/publishing-with-visual-studio?pivots=dotnet-7-0)
+
