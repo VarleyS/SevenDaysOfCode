@@ -72,9 +72,12 @@ Controller = TamagotchiController
 * **Map class Pokemon to class Mascot.**
 Implementation carried out in the mascot class, so that it inherits characteristics from the Pokemon class.
 
+![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://github.com/VarleyS/SevenDaysOfCode/blob/master/SevenDaysOfCode/img/day6.png)
 
 ## Day 7:
 
 * **Build and generate the executable of the application**
 Application published for interactions, using commands, according to [documentation.](https://learn.microsoft.com/pt-br/dotnet/core/tutorials/publishing-with-visual-studio?pivots=dotnet-7-0)
+
+![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://github.com/VarleyS/SevenDaysOfCode/blob/master/SevenDaysOfCode/img/day7.png)
 
