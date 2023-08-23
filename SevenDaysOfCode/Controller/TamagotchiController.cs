@@ -173,8 +173,8 @@ namespace SevenDaysOfCode.Controller
                 Console.WriteLine($"Saúde:\t\t{Menu.ProgressBar(mascote.health.Value)}\t{mascote.RetornaSaude()}");
                 Console.WriteLine($"Fome:\t\t{Menu.ProgressBar(mascote.hungry.Value)}\t{mascote.RetornaFome()}");
                 Console.WriteLine($"Sono:\t\t{Menu.ProgressBar(mascote.sleepy.Value)}\t{mascote.RetornaSono()}");
-                Console.WriteLine($"Felicidade:\t\t{Menu.ProgressBar(mascote.happiness.Value)}\t{mascote.RetornaFelicidade()}");
-                Console.WriteLine($"Canssado:\t\t{Menu.ProgressBar(mascote.tiredness.Value)}\t{mascote.RetornaCanssado()}");
+                Console.WriteLine($"Felicidade:\t{Menu.ProgressBar(mascote.happiness.Value)}\t{mascote.RetornaFelicidade()}");
+                Console.WriteLine($"Canssado:\t{Menu.ProgressBar(mascote.tiredness.Value)}\t{mascote.RetornaCanssado()}");
 
                 switch (Menu.MenuView(options))
                 {
